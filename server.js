@@ -2,7 +2,11 @@ require('dotenv/config');
 const mongoose = require('mongoose')
 const app = require('./app')
 
-mongoose.connect(process.env.MONGODB_URL_LOCAL)
+const onlineServer = "mongodb+srv://e-comm-mjMongo:<password>@e-commerce-cluster.kw0afbx.mongodb.net/?retryWrites=true&w=majority"
+
+const DB = onlineServer.replace("<password>", process.env.DB_PASSWORD)
+
+mongoose.connect(DB)
     .then(() => console.log("Connected to MongoDB!"))
     .catch((e) => console.error("MongoDB Connection Failed!"))
 
