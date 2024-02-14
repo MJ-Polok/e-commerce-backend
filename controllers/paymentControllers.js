@@ -10,9 +10,11 @@ module.exports.ipn = async (req, res) => {
     if (payment['status'] === "VALID") {
         const order = await Order.updateOne({ transaction_id: tran_id }, { status: "Complete" });
         await CartItem.deleMany(order.cartItems);
+        console.log('Success');
     }
     else {
         await Order.deleteOne({ transaction_id: tran_id })
+        console.log('Failed');
     }
     await payment.save();
     return res.status(200).send("IPN");
