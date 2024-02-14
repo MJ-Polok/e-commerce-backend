@@ -11,7 +11,8 @@ module.exports.setProfile = async (req, res) => {
     console.log('set profile');
     const userId = req.user._id;
     const userProfile = _.pick(req.body, ["user","phone", "address1", "address2", "city", "state", "postcode", "country"]);
-    console.log("Profile",userProfile);
+    userProfile["user"] = userId;
+    console.log("Profile:",userProfile);
     let profile = await Profile.findOne({ user: userId });
     if (profile) {
         await Profile.updateOne({ user: userId }, userProfile);
