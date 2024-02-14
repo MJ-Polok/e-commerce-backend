@@ -3,6 +3,7 @@ const { Profile } = require('../models/profile');
 const PaymentSession = require('ssl-commerz-node').PaymentSession;
 
 module.exports.ipn = async(req, res) => {
+    console.log("yes");
     console.log(req.body);
 }
 
