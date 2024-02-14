@@ -2,6 +2,8 @@ require('dotenv/config');
 const mongoose = require('mongoose')
 const app = require('./app')
 
+global.__basedir = __dirname;
+
 const onlineServer = "mongodb+srv://e-comm-mjMongo:<password>@e-commerce-cluster.kw0afbx.mongodb.net/?retryWrites=true&w=majority"
 
 const DB = onlineServer.replace("<password>", process.env.DB_PASSWORD)

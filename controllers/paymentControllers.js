@@ -96,3 +96,7 @@ module.exports.initPayment = async (req, res) => {
     }
     return res.status(200).send(response);
 }
+
+module.exports.paymentSuccess = async (req, res) => {
+    res.sendFile(path.join(__basedir + "public/success.html"))
+}

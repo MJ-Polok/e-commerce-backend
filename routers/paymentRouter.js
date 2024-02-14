@@ -8,4 +8,7 @@ router.route('/')
 router.route('/ipn')
     .post(ipn);
 
+router.route('/success')
+    .post(paymentSuccess);
+
 module.exports = router
